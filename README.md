@@ -294,11 +294,17 @@ Flow 1: Where user gives the Locality manually.
 User|Reply|Screenshot
 ---|---|---
 <pre><code>Hi</code></pre> | <pre><code>The message, 'Hi' that you typed on your phone, went through Whatsapp -> Twilio -> Python App hosted on IBM Cloud and returned back to you from Python App hosted on IBM Cloud -> Twilio -> Whatsapp. How Cool is that!! Try asking <b>What can you do?</b> </code></pre> | ![](doc/source/images/whatsappss/2.png)
+
 <pre><code>What can you do?</code></pre> | <pre><code>I am a bot who is connected to watson services on IBM Cloud! Try asking <b>What are the services you are connected to?</b></code></pre> | ![](doc/source/images/whatsappss/3.png)
+
 <pre><code>What are the services you are connected to?</code></pre> | <pre><code>I found the following services associated to me: 1. Watson Machine Learning -> *ready* Enter the number to know more.</code></pre> | ![](doc/source/images/whatsappss/4.png)
+
 <pre><code>1</code></pre> | <pre><code>WML Model id: *xxxx-xxxx-xxxx* WML Model Name: *Deployment of Bangalore House Price Prediction* WML Model Status: *ready* Try asking <b>I want to know house prices</b></code></pre> | ![](doc/source/images/whatsappss/5.png)
+
 <pre><code>I want to know house prices</code></pre> | <pre><code>What do you want to do? A.Check prices in different locality B.Check the prices in your current locality Enter either *A* or *B* to continue...</b></code></pre> | ![](doc/source/images/whatsappss/6.png)
+
 <pre><code>A</code></pre> | <pre><code>Please enter the details with the below format: Predict:`<Place-Name>`,`<Area-sq.ft>`,`<How-many-bhk>` Example: Predict:Thanisandra,1300,2</code></pre> | ![](doc/source/images/whatsappss/7.png)
+
 <pre><code>Predict: Whitefield, 1400, 3</code></pre> | <pre><code>Area: Whitefield, Bengaluru 3 Bhk with 1400 Sq.Ft will cost you approx: <b>89 Lakhs</b></code></pre> | ![](doc/source/images/whatsappss/7.png)
 
 Alternate Flow 2: Where user sends location data and the algorithm will compute nearest locality.
@@ -306,12 +312,19 @@ Alternate Flow 2: Where user sends location data and the algorithm will compute 
 User|Reply|Screenshot
 ---|---|---
 <pre><code>Hi</code></pre> | <pre><code>The message, 'Hi' that you typed on your phone, went through Whatsapp -> Twilio -> Python App hosted on IBM Cloud and returned back to you from Python App hosted on IBM Cloud -> Twilio -> Whatsapp. How Cool is that!! Try asking <b>What can you do?</b> </code></pre> | ![](doc/source/images/whatsappss/2.png)
+
 <pre><code>What can you do?</code></pre> | <pre><code>I am a bot who is connected to watson services on IBM Cloud! Try asking <b>What are the services you are connected to?</b></code></pre> | ![](doc/source/images/whatsappss/3.png)
+
 <pre><code>What are the services you are connected to?</code></pre> | <pre><code>I found the following services associated to me: 1. Watson Machine Learning -> *ready* Enter the number to know more.</code></pre> | ![](doc/source/images/whatsappss/4.png)
+
 <pre><code>1</code></pre> | <pre><code>WML Model id: *xxxx-xxxx-xxxx* WML Model Name: *Deployment of Bangalore House Price Prediction* WML Model Status: *ready* Try asking <b>I want to know house prices</b></code></pre> | ![](doc/source/images/whatsappss/5.png)
+
 <pre><code>I want to know house prices</code></pre> | <pre><code>What do you want to do? A.Check prices in different locality B.Check the prices in your current locality Enter either *A* or *B* to continue...</b></code></pre> | ![](doc/source/images/whatsappss/6.png)
+
 <pre><code>B</code></pre> | <pre><code>Share your current location Tap Attach > Location > Send your current location</code></pre> | ![](doc/source/images/whatsappss/8.png)
+
 <pre><code>*GPS LOCATION*</code></pre> | <pre><code>For Area: XXX, Bengaluru Please enter the details with the below format: Predict:`<Area-sq.ft>`,`<How-many-bhk>` Example: Predict:1300,2</code></pre> | ![](doc/source/images/whatsappss/9.png)
+
 <pre><code>Predict: 1200, 2</code></pre> | <pre><code>Area: XXX, Bengaluru 2 Bhk with 1200 Sq.Ft will cost you approx: <b>67 Lakhs</b></code></pre> | ![](doc/source/images/whatsappss/10.png)
 
 At the end of the code pattern you will have learnt how to Augment IBM Watson services to WhatsApp via Twilio service.
