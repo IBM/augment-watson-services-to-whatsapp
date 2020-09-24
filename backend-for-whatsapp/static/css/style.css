@@ -1,0 +1,15 @@
+.custom-container {
+    margin-top: 5%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.custompanel {
+    color: white;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.custompanel h4 {
+    color: rgb(134, 213, 212);
+}

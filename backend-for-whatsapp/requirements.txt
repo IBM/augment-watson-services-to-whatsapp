@@ -1,0 +1,7 @@
+Flask==1.1.1
+twilio==6.44.1
+scikit-learn==0.20.3
+numpy==1.17.4
+pandas==0.25.3
+ibm-watson-machine-learning==1.0.10
+pillow==7.1.2
