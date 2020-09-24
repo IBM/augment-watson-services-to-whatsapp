@@ -289,7 +289,7 @@ The workflow of the app is as follows:
 
 NOTE: The user has to follow the exact same workflow for the WhatsApp to reply as intended.
 
-Flow 1: Where user gives the Locality manually.
+## Flow 1: Where user gives the Locality manually.
 
 User|Reply|Screenshot
 ---|---|---
@@ -301,7 +301,7 @@ I want to know house prices | What do you want to do? A.Check prices in differen
 A | Please enter the details with the below format: Predict:`<Place-Name>`,`<Area-sq.ft>`,`<How-many-bhk>` Example: Predict:Thanisandra,1300,2 | ![6](doc/source/images/whatsappss/7.PNG)
 Predict: Whitefield, 1400, 3 | Area: Whitefield, Bengaluru 3 Bhk with 1400 Sq.Ft will cost you approx: <b>89 Lakhs</b> | ![7](doc/source/images/whatsappss/7.PNG)
 
-Alternate Flow 2: Where user sends location data and the algorithm will compute nearest locality.
+## Alternate Flow 2: Where user sends location data and the algorithm will compute nearest locality.
 
 User|Reply|Screenshot
 ---|---|---
