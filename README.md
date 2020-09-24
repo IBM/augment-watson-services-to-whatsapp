@@ -58,7 +58,7 @@ Create the following services:
 
 - Login to IBM Cloud, and create a [**Watson Machine Learning**](https://cloud.ibm.com/catalog/services/machine-learning) service, make a note of the **region** that you select and click on **create** as shown.
 
-![wml](doc/source/images/watsonMl.png)
+![wml](doc/source/images/watsonML.png)
 
 - Once the service is created, click on the **Manage** tab and select **Access (IAM)**, the cloud Identity and Access Management page will be displayed.
 
