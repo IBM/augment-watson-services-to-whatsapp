@@ -291,28 +291,97 @@ NOTE: The user has to follow the exact same workflow for the WhatsApp to reply a
 
 Flow 1: Where user gives the Locality manually.
 
-User|Reply|Screenshot
----|---|---
-Hi | The message, 'Hi' that you typed on your phone, went through Whatsapp -> Twilio -> Python App hosted on IBM Cloud and returned back to you from Python App hosted on IBM Cloud -> Twilio -> Whatsapp. How Cool is that!! Try asking <b>What can you do?</b> | ![1](doc/source/images/whatsappss/2.png)
-What can you do? | I am a bot who is connected to watson services on IBM Cloud! Try asking <b>What are the services you are connected to?</b> | ![2](doc/source/images/whatsappss/3.png)
-What are the services you are connected to? | I found the following services associated to me: 1. Watson Machine Learning -> *ready* Enter the number to know more. | ![](doc/source/images/whatsappss/4.png)
-1 | WML Model id: *xxxx-xxxx-xxxx* WML Model Name: *Deployment of Bangalore House Price Prediction* WML Model Status: *ready* Try asking <b>I want to know house prices</b> | ![](doc/source/images/whatsappss/5.png)
-I want to know house prices | What do you want to do? A.Check prices in different locality B.Check the prices in your current locality Enter either *A* or *B* to continue...</b> | ![](doc/source/images/whatsappss/6.png)
-A | Please enter the details with the below format: Predict:`<Place-Name>`,`<Area-sq.ft>`,`<How-many-bhk>` Example: Predict:Thanisandra,1300,2 | ![](doc/source/images/whatsappss/7.png)
-Predict: Whitefield, 1400, 3 | Area: Whitefield, Bengaluru 3 Bhk with 1400 Sq.Ft will cost you approx: <b>89 Lakhs</b> | ![](doc/source/images/whatsappss/7.png)
+User|Reply
+---|---
+Hi | The message, 'Hi' that you typed on your phone, went through Whatsapp -> Twilio -> Python App hosted on IBM Cloud and returned back to you from Python App hosted on IBM Cloud -> Twilio -> Whatsapp. How Cool is that!! Try asking <b>What can you do?</b>
+
+![1](doc/source/images/whatsappss/2.png)
+
+User|Reply
+---|---
+What can you do? | I am a bot who is connected to watson services on IBM Cloud! Try asking <b>What are the services you are connected to?</b>
+
+![2](doc/source/images/whatsappss/3.png)
+
+User|Reply
+---|---
+What are the services you are connected to? | I found the following services associated to me: 1. Watson Machine Learning -> *ready* Enter the number to know more.
+
+![3](doc/source/images/whatsappss/4.png)
+
+User|Reply
+---|---
+1 | WML Model id: *xxxx-xxxx-xxxx* WML Model Name: *Deployment of Bangalore House Price Prediction* WML Model Status: *ready* Try asking <b>I want to know house prices</b>
+
+![4](doc/source/images/whatsappss/5.png)
+
+User|Reply
+---|---
+I want to know house prices | What do you want to do? A.Check prices in different locality B.Check the prices in your current locality Enter either *A* or *B* to continue...</b>
+
+![5](doc/source/images/whatsappss/6.png)
+
+User|Reply
+---|---
+A | Please enter the details with the below format: Predict:`<Place-Name>`,`<Area-sq.ft>`,`<How-many-bhk>` Example: Predict:Thanisandra,1300,2
+
+![6](doc/source/images/whatsappss/7.png)
+
+User|Reply
+---|---
+Predict: Whitefield, 1400, 3 | Area: Whitefield, Bengaluru 3 Bhk with 1400 Sq.Ft will cost you approx: <b>89 Lakhs</b> 
+
+![7](doc/source/images/whatsappss/7.png)
 
 Alternate Flow 2: Where user sends location data and the algorithm will compute nearest locality.
 
-User|Reply|Screenshot
----|---|---
-Hi | The message, 'Hi' that you typed on your phone, went through Whatsapp -> Twilio -> Python App hosted on IBM Cloud and returned back to you from Python App hosted on IBM Cloud -> Twilio -> Whatsapp. How Cool is that!! Try asking <b>What can you do?</b> | ![1](doc/source/images/whatsappss/2.png)
-What can you do? | I am a bot who is connected to watson services on IBM Cloud! Try asking <b>What are the services you are connected to?</b> | ![2](doc/source/images/whatsappss/3.png)
-What are the services you are connected to? | I found the following services associated to me: 1. Watson Machine Learning -> *ready* Enter the number to know more. | ![](doc/source/images/whatsappss/4.png)
-1 | WML Model id: *xxxx-xxxx-xxxx* WML Model Name: *Deployment of Bangalore House Price Prediction* WML Model Status: *ready* Try asking <b>I want to know house prices</b> | ![](doc/source/images/whatsappss/5.png)
-I want to know house prices | What do you want to do? A.Check prices in different locality B.Check the prices in your current locality Enter either *A* or *B* to continue...</b> | ![](doc/source/images/whatsappss/6.png)
-B | Share your current location Tap Attach > Location > Send your current location | ![](doc/source/images/whatsappss/8.png)
-*GPS LOCATION* | For Area: XXX, Bengaluru Please enter the details with the below format: Predict:`<Area-sq.ft>`,`<How-many-bhk>` Example: Predict:1300,2 | ![](doc/source/images/whatsappss/9.png)
-Predict: 1200, 2 | Area: XXX, Bengaluru 2 Bhk with 1200 Sq.Ft will cost you approx: <b>67 Lakhs</b> | ![](doc/source/images/whatsappss/10.png)
+User|Reply
+---|---
+Hi | The message, 'Hi' that you typed on your phone, went through Whatsapp -> Twilio -> Python App hosted on IBM Cloud and returned back to you from Python App hosted on IBM Cloud -> Twilio -> Whatsapp. How Cool is that!! Try asking <b>What can you do?</b>
+
+![1](doc/source/images/whatsappss/2.png)
+
+User|Reply
+---|---
+What can you do? | I am a bot who is connected to watson services on IBM Cloud! Try asking <b>What are the services you are connected to?</b>
+
+![2](doc/source/images/whatsappss/3.png)
+
+User|Reply
+---|---
+What are the services you are connected to? | I found the following services associated to me: 1. Watson Machine Learning -> *ready* Enter the number to know more.
+
+![3](doc/source/images/whatsappss/4.png)
+
+User|Reply
+---|---
+1 | WML Model id: *xxxx-xxxx-xxxx* WML Model Name: *Deployment of Bangalore House Price Prediction* WML Model Status: *ready* Try asking <b>I want to know house prices</b>
+
+![4](doc/source/images/whatsappss/5.png)
+
+User|Reply
+---|---
+I want to know house prices | What do you want to do? A.Check prices in different locality B.Check the prices in your current locality Enter either *A* or *B* to continue...</b>
+
+![5](doc/source/images/whatsappss/6.png)
+
+User|Reply
+---|---
+B | Share your current location Tap Attach > Location > Send your current location
+
+![6](doc/source/images/whatsappss/8.png)
+
+User|Reply
+---|---
+*GPS LOCATION* | For Area: XXX, Bengaluru Please enter the details with the below format: Predict:`<Area-sq.ft>`,`<How-many-bhk>` Example: Predict:1300,2
+
+![7](doc/source/images/whatsappss/9.png)
+
+User|Reply
+---|---
+Predict: 1200, 2 | Area: XXX, Bengaluru 2 Bhk with 1200 Sq.Ft will cost you approx: <b>67 Lakhs</b>
+
+![8](doc/source/images/whatsappss/10.png)
 
 At the end of the code pattern you will have learnt how to Augment IBM Watson services to WhatsApp via Twilio service.
 
