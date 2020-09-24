@@ -25,11 +25,9 @@ When you have completed this code pattern, you will understand how to:
 <!--Optionally, update this section when the video is created-->
 # Watch the Video
 
-[![video](http://img.youtube.com/vi/Jxi7U7VOMYg/0.jpg)](https://www.youtube.com/watch?v=Jxi7U7VOMYg)
+<!--[![video](http://img.youtube.com/vi/Jxi7U7VOMYg/0.jpg)](https://www.youtube.com/watch?v=Jxi7U7VOMYg)-->
 
 # Steps
-
-Use the **Deploy to IBM Cloud** button **OR** create the services and run locally.
 
 1. [Clone the repo](#1-clone-the-repo).
 2. [Create Watson services](#2-create-watson-services).
@@ -47,8 +45,7 @@ Clone the `augment-watson-services-to-whatsapp` repo locally. In a terminal, run
 git clone https://github.com/IBM/augment-watson-services-to-whatsapp
 ```
 
-We’ll be using the file [`data/assistant/workspaces/banking.json`](data/assistant/workspaces/banking.json) and the folder
-[`data/assistant/workspaces/`](data/assistant/workspaces/)
+We’ll be using the folder [`backend-for-whatsapp`](backend-for-whatsapp)
 
 ### 2. Create Watson services
 
