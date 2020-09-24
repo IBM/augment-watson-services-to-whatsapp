@@ -1,14 +1,14 @@
 ### !Documentation in progress
 # Augment IBM Watson Services to WhatsApp
 
-In this code pattern, we will [create something] using [technologies] and [components]. [Explain briefly how things work]. [Give acknowledgements to others if necessary]
+In this Code Pattern, we will build a WhatsApp bot augmented with IBM Watson services that will be capable of answering queries related to real estate (area wise, city wise, etc..) and also capable of predicting the prices of a property based on customers requirement.
 
 When you have completed this code pattern, you will understand how to:
 
-* [goal 1]
-* [goal 2]
-* [goal 3]
-* [goal 4]
+* Integrate IBM Watson Services to WhatsApp.
+* Deploy Application to IBM Cloud Foundry.
+* Deploy Machine Learning models to IBM Watson Machine Learning service.
+* Manage Machine Learning models in IBM Watson Studio.
 
 <!--add an image in this path-->
 ![architecture](doc/source/images/architecture.png)
@@ -16,16 +16,33 @@ When you have completed this code pattern, you will understand how to:
 <!--Optionally, add flow steps based on the architecture diagram-->
 ## Flow
 
-1. Step 1.
-2. Step 2.
-3. Step 3.
-4. Step 4.
-5. Step 5.
+1. User sends a message to WhatsApp.
+
+2. The message is redirected to Twilio Programmable Messaging service.
+
+3. Twilio Programmable Messaging service will further forward the message to the backend application hosted on IBM Cloud.
+
+4. The backend application interacts with the Watson Machine Learning service to get the response.
+
+5. Watson Machine Learning service does the necessary computation and returns a response accordingly.
+
+6. The backend application processes the response and converts it to user readable format and forwards it Twilio.
+
+7. Twilio forwards this message as a reply on WhatsApp.
+
+8. The user will receive this as a response from Watson Machine Learning service on WhatsApp.
 
 <!--Optionally, update this section when the video is created-->
 # Watch the Video
 
 <!--[![video](http://img.youtube.com/vi/Jxi7U7VOMYg/0.jpg)](https://www.youtube.com/watch?v=Jxi7U7VOMYg)-->
+
+# Pre Requisites
+
+1. [IBM Cloud Account](https://cloud.ibm.com/registration).
+2. [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started&locale=en-US).
+3. [IBM Cloud Object Storage](https://cloud.ibm.com/catalog/services/cloud-object-storage).
+
 
 # Steps
 
@@ -121,6 +138,7 @@ $ ibmcloud login
 ```
 
 >NOTE: If you have a federated user ID, instead use the following command to log in with your single sign-on ID.
+
 ```bash
 $ ibmcloud login --sso
 ```
@@ -186,7 +204,7 @@ start command:   python app.py
 
 ![](doc/source/images/verifyMobileTwilio.png)
 
-- On Successful verification you should see a welcome greeting message, additionally you will see a question **Do you write code?**, select **Yes** to proceed.
+- On successful verification you should see a welcome greeting message, additionally you will see a question **Do you write code?**, select **Yes** to proceed.
 
 ![](doc/source/images/twilioWelcome.png)
 
