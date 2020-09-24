@@ -293,19 +293,19 @@ Flow 1: Where user gives the Locality manually.
 
 User|Reply|Screenshot
 ---|---|---
-<pre><code>Hi</code></pre> | <pre><code>The message, 'Hi' that you typed on your phone, went through Whatsapp -> Twilio -> Python App hosted on IBM Cloud and returned back to you from Python App hosted on IBM Cloud -> Twilio -> Whatsapp. How Cool is that!! Try asking <b>What can you do?</b> </code></pre> | ![](doc/source/images/whatsappss/2.png)
+Hi | The message, 'Hi' that you typed on your phone, went through Whatsapp -> Twilio -> Python App hosted on IBM Cloud and returned back to you from Python App hosted on IBM Cloud -> Twilio -> Whatsapp. How Cool is that!! Try asking <b>What can you do?</b> | ![1](doc/source/images/whatsappss/2.png)
 
-<pre><code>What can you do?</code></pre> | <pre><code>I am a bot who is connected to watson services on IBM Cloud! Try asking <b>What are the services you are connected to?</b></code></pre> | ![](doc/source/images/whatsappss/3.png)
+What can you do? | I am a bot who is connected to watson services on IBM Cloud! Try asking <b>What are the services you are connected to?</b> | ![2](doc/source/images/whatsappss/3.png)
 
-<pre><code>What are the services you are connected to?</code></pre> | <pre><code>I found the following services associated to me: 1. Watson Machine Learning -> *ready* Enter the number to know more.</code></pre> | ![](doc/source/images/whatsappss/4.png)
+What are the services you are connected to? | I found the following services associated to me: 1. Watson Machine Learning -> *ready* Enter the number to know more. | ![](doc/source/images/whatsappss/4.png)
 
-<pre><code>1</code></pre> | <pre><code>WML Model id: *xxxx-xxxx-xxxx* WML Model Name: *Deployment of Bangalore House Price Prediction* WML Model Status: *ready* Try asking <b>I want to know house prices</b></code></pre> | ![](doc/source/images/whatsappss/5.png)
+1 | WML Model id: *xxxx-xxxx-xxxx* WML Model Name: *Deployment of Bangalore House Price Prediction* WML Model Status: *ready* Try asking <b>I want to know house prices</b> | ![](doc/source/images/whatsappss/5.png)
 
-<pre><code>I want to know house prices</code></pre> | <pre><code>What do you want to do? A.Check prices in different locality B.Check the prices in your current locality Enter either *A* or *B* to continue...</b></code></pre> | ![](doc/source/images/whatsappss/6.png)
+I want to know house prices | What do you want to do? A.Check prices in different locality B.Check the prices in your current locality Enter either *A* or *B* to continue...</b> | ![](doc/source/images/whatsappss/6.png)
 
-<pre><code>A</code></pre> | <pre><code>Please enter the details with the below format: Predict:`<Place-Name>`,`<Area-sq.ft>`,`<How-many-bhk>` Example: Predict:Thanisandra,1300,2</code></pre> | ![](doc/source/images/whatsappss/7.png)
+A | Please enter the details with the below format: Predict:`<Place-Name>`,`<Area-sq.ft>`,`<How-many-bhk>` Example: Predict:Thanisandra,1300,2 | ![](doc/source/images/whatsappss/7.png)
 
-<pre><code>Predict: Whitefield, 1400, 3</code></pre> | <pre><code>Area: Whitefield, Bengaluru 3 Bhk with 1400 Sq.Ft will cost you approx: <b>89 Lakhs</b></code></pre> | ![](doc/source/images/whatsappss/7.png)
+Predict: Whitefield, 1400, 3 | Area: Whitefield, Bengaluru 3 Bhk with 1400 Sq.Ft will cost you approx: <b>89 Lakhs</b> | ![](doc/source/images/whatsappss/7.png)
 
 Alternate Flow 2: Where user sends location data and the algorithm will compute nearest locality.
 
