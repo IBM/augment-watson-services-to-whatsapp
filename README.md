@@ -1,4 +1,3 @@
-### !Documentation in progress
 # Augment IBM Watson Services to WhatsApp
 
 In this Code Pattern, we will build a WhatsApp bot augmented with IBM Watson services that will be capable of answering queries related to real estate (area wise, city wise, etc..) and also capable of predicting the prices of a property based on customers requirement.
@@ -48,6 +47,8 @@ When you have completed this code pattern, you will understand how to:
 
 1. [Clone the repo](#1-clone-the-repo).
 2. [Create Watson services](#2-create-watson-services).
+     - [2.1. Watson Machine Learning](#21-watson-machine-learning).
+     - [2.2. Watson Studio](#22-watson-studio).
 3. [Deploy the Server Application on IBM Cloud Foundry](#3-deploy-the-server-application-on-ibm-cloud-foundry).
 4. [Create Twilio service](#4-create-twilio-service).
 5. [Configure credentials](#5-configure-credentials).
@@ -70,7 +71,7 @@ Create the following services:
 
 #### 2.1. Watson Machine Learning
 
-- Login to IBM Cloud, and create a [**Watson Machine Learning**](https://cloud.ibm.com/catalog/services/machine-learning) service, make a note of the **region** that you select and click on **create** as shown.
+- Login to IBM Cloud, and create a [**Watson Machine Learning**](https://cloud.ibm.com/catalog/services/machine-learning) service, select **region** as `London` and click on **create** as shown.
 
 ![wml](doc/source/images/watsonML.png)
 
@@ -94,7 +95,7 @@ Create the following services:
 
 #### 2.2. Watson Studio
 
-- Back to IBM Cloud, create a [**Watson Studio**](https://cloud.ibm.com/catalog/services/watson-studio) service, make sure the **region** that you select is same as the Watson Machine Learning service's region, and finally click on **create** as shown.
+- Back to IBM Cloud, create a [**Watson Studio**](https://cloud.ibm.com/catalog/services/watson-studio) service, select **region** as `London` and finally click on **create** as shown.
 
 ![watson-studio](doc/source/images/watsonStudioService.png) 
 
@@ -118,6 +119,8 @@ Create the following services:
 
 - Once the deployment space is created, click on **View Space** to view the details.
 
+![deployment-space](doc/source/images/deploymentSpaceReady.png)
+
 - Click on **Settings** and copy the `space ID` as it is required in [Step 5](#5-configure-credentials).
 
 ![](doc/source/images/copy-space-id.gif)
@@ -131,6 +134,10 @@ Create the following services:
 - Before you proceed, make sure you have installed [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started&locale=en-US) in your deployment machine.
 
 - From the cloned repo, goto **backend-for-whatsapp** directory in terminal, and run the following commands to deploy the Application to IBM Cloud Foundry.
+
+```bash
+$ cd backend-for-whatsapp/
+```
 
 * Log in to your IBM Cloud account, and select an API endpoint.
 ```bash
@@ -280,7 +287,9 @@ start command:   python app.py
 
 ![](doc/source/images/deployWml.png)
 
-- Click on **Deploy the Model on WML** button and wait for the &**Status** to change.
+- Click on **Deploy the Model on WML** button and wait for the **Status** to change.
+
+>Note: It will take couple of minutes for the model to get deployed.
 
 - Once the model is deployed you will see a **Status** as `Deployed, Model ID: xxx-xxx-xxx`.
 
@@ -330,6 +339,10 @@ B | Share your current location Tap Attach > Location > Send your current locati
 Predict: 1200, 2 | Area: XXX, Bengaluru 2 Bhk with 1200 Sq.Ft will cost you approx: <b>67 Lakhs</b> | ![8](doc/source/images/whatsappss/10.PNG)
 
 At the end of the code pattern you will have learnt how to Augment IBM Watson services to WhatsApp via Twilio service.
+
+## Related
+
+- [Augment Watson Visual Recognition service with WhatsApp](https://github.com/IBM/augment-watson-services-to-whatsapp-2)
 
 ## License
 
