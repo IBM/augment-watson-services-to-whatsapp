@@ -1,6 +1,6 @@
 # Short Title
 
-Augment IBM Watson Services with WhatsApp
+Augment IBM Watson Services to WhatsApp
 
 # Long Title
 
