@@ -127,7 +127,7 @@ def storeWatsonCredentials():
     
     data = json.loads(receivedPayload.get('apikey'))
     data.update({"cloudfunctionurl": receivedPayload.get('cloudfunctionurl')+'.json'})
-    
+    data.update({"windowURL": receivedPayload.get('windowURL')})
     with open(app.config["CREDENTIALS"]+receivedPayload.get('type')+'Credentials.json', 'w') as fs:
         json.dump(data, fs, indent=2)
 
