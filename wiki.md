@@ -1,6 +1,6 @@
 # Short Title
 
-Augment IBM Watson Services to WhatsApp
+Build a framework that connects WhatsApp to any Watson service on IBM Cloud.
 
 # Long Title
 
@@ -23,7 +23,7 @@ https://github.com/IBM/augment-watson-services-to-whatsapp
 
 # Summary
 
-In this Code Pattern, we will build a WhatsApp bot augmented with IBM Watson services that will be capable of answering queries related to real estate (area wise, city wise, etc..) and also capable of predicting the prices of a property based on customers requirement.
+In this Code Pattern, we will build a WhatsApp bot augmented with Watson machine learning service that will be capable of answering queries related to real estate (area wise, city wise, etc..) and also capable of predicting the prices of a property based on customers requirement.
 
 # Technologies
 
