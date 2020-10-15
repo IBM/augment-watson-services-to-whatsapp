@@ -1,12 +1,14 @@
 # Build a framework that connects WhatsApp to any Watson service on IBM Cloud.
 
-In this Code Pattern, we will build a WhatsApp bot augmented with Watson machine learning service that will be capable of answering queries related to real estate (area wise, city wise, etc..) and also capable of predicting the prices of a property based on customers requirement.
+In this Code Pattern, you will learn how to build a framework which can act as an intermediator in connecting Watson services to WhatsApp messenger, to enable mobile users to leverage watson services through a messenger app.
+
+You will learn to build a framework and how to connect Watson Machine Learning service, deploy a simple house price prediction model and access it from your WhatsApp messenger.
 
 When you have completed this code pattern, you will understand how to:
 
 * Integrate IBM Watson Services to WhatsApp.
 * Deploy Application to IBM Cloud Foundry.
-* Deploy Machine Learning models to IBM Watson Machine Learning service.
+* Deploy Machine Learning models to Cloud Object Storage.
 * Manage Machine Learning models in IBM Watson Studio.
 
 <!--add an image in this path-->
@@ -15,17 +17,17 @@ When you have completed this code pattern, you will understand how to:
 <!--Optionally, add flow steps based on the architecture diagram-->
 ## Flow
 
-1. User sends a message to WhatsApp.
+1. User sends a message through WhatsApp.
 
 2. The message is redirected to Twilio Programmable Messaging service.
 
-3. Twilio Programmable Messaging service will further forward the message to the backend application hosted on IBM Cloud.
+3. Twilio Programmable Messaging service will further forward the message to the framework hosted on IBM Cloud.
 
-4. The backend application interacts with the Watson Machine Learning service to get the response.
+4. The framework interacts with the Watson Machine Learning service to get the response.
 
 5. Watson Machine Learning service does the necessary computation and returns a response accordingly.
 
-6. The backend application processes the response and converts it to user readable format and forwards it Twilio.
+6. The framework processes the response and converts it to user readable format and forwards it Twilio.
 
 7. Twilio forwards this message as a reply on WhatsApp.
 
@@ -46,13 +48,14 @@ When you have completed this code pattern, you will understand how to:
 # Steps
 
 1. [Clone the repo](#1-clone-the-repo).
-2. [Create Watson services](#2-create-watson-services).
-     - [2.1. Watson Machine Learning](#21-watson-machine-learning).
-     - [2.2. Watson Studio](#22-watson-studio).
-3. [Deploy the Server Application on IBM Cloud Foundry](#3-deploy-the-server-application-on-ibm-cloud-foundry).
-4. [Create Twilio service](#4-create-twilio-service).
+2. [Deploy the framework on IBM Cloud Foundry](#2-deploy-the-framework-on-ibm-cloud-foundry).
+3. [Create Twilio service](#3-create-twilio-service).
+4. [Create Watson services](#4-create-watson-services).
+     - [4.1. Watson Machine Learning](#41-watson-machine-learning).
+     - [4.2. Watson Studio](#42-watson-studio).
 5. [Configure credentials](#5-configure-credentials).
 6. [Deploy the House Price Prediction model](#6-deploy-the-house-price-prediction-model).
+
 
 
 ### 1. Clone the repo
@@ -65,71 +68,7 @@ git clone https://github.com/IBM/augment-watson-services-to-whatsapp
 
 We’ll be using the folder [`backend-for-whatsapp`](backend-for-whatsapp)
 
-### 2. Create Watson services
-
-Create the following services:
-
-#### 2.1. Watson Machine Learning
-
-- Login to IBM Cloud, and create a [**Watson Machine Learning**](https://cloud.ibm.com/catalog/services/machine-learning) service, select **region** as `London` and click on **create** as shown.
-
-![wml](doc/source/images/watsonML.png)
-
-- Once the service is created, click on the **Manage** tab and select **Access (IAM)**, the cloud Identity and Access Management page will be displayed.
-
-![manage-iam](doc/source/images/accessiam.png)
-
-- Click on **API keys** on the left panel as shown.
-
-![iam](doc/source/images/iam.png)
-
-- In **API keys**, click on **Create an IBM Cloud API key** and give a Name and Description Accordingly as shown.
-
-![create-api-key](doc/source/images/createApiKey.png)
-
-- Once the API key is generated Successfully, copy the key as it will be used in [Step 5](#5-configure-credentials). 
-
->NOTE: The API key will not be visible once the dialog box is dismissed, you can **Download** the API key to keep it handy just in case you loose the copied key.
-
-![api-key-created](doc/source/images/apiKeyCreated.png)
-
-#### 2.2. Watson Studio
-
-- Back to IBM Cloud, create a [**Watson Studio**](https://cloud.ibm.com/catalog/services/watson-studio) service, select **region** as `London` and finally click on **create** as shown.
-
-![watson-studio](doc/source/images/watsonStudioService.png) 
-
-- Once the service is created, click on **Get Started** to provision an IBM Cloud Pak for Data instance.
-
-![watson-studio-get-started](doc/source/images/watsonStudioGetStarted.png) 
-
-- In Watson Studio / IBM Cloud Pak for Data, click on the hamburger menu on the top left corner and select **Deployment spaces > View all spaces**.
-
-![](doc/source/images/select-deployment-spaces.gif)
-
-- In deployment spaces, click on **New deployment space +**.
-
-- Select **Create an empty space** when prompted.
-
-- Make sure you select the appropriate **Cloud object storage service** as well as **Machine learning service**.
-
-![](doc/source/images/deployment-space.png)
-
->NOTE: In v4 Machine learning assets are stored in Cloud Object Storage rather than in the Watson Machine Learning repository.
-
-- Once the deployment space is created, click on **View Space** to view the details.
-
-![deployment-space](doc/source/images/deploymentSpaceReady.png)
-
-- Click on **Settings** and copy the `space ID` as it is required in [Step 5](#5-configure-credentials).
-
-![](doc/source/images/copy-space-id.gif)
-
-> Learn more about deployment space [here](https://eu-gb.dataplatform.cloud.ibm.com/docs/content/wsj/wmls/wmls-deploy-overview.html).
-
-- At this point, you should have the `API key` and the `Space ID` copied in any notepad as these will be used in [Step 5](#5-configure-credentials).
-
-### 3. Deploy the Server Application on IBM Cloud Foundry
+### 2. Deploy the framework on IBM Cloud Foundry
 
 - Before you proceed, make sure you have installed [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started&locale=en-US) in your deployment machine.
 
@@ -191,9 +130,23 @@ start command:   python app.py
 
 >Example: http://whatsapp-server.xx-xx.mybluemix.net
 
-- At this point, along with `API key` and the `Space ID` you should also have the deployed app `URL`.
+- At this point, you will have successfully deployed the framework on IBM Cloud. Now lets access it and see how it looks like.
 
-### 4. Create Twilio service
+- Visit the `URL` in your browser to access the framework.
+
+>Example: http://whatsapp-server.xx-xx.mybluemix.net
+
+- You will now have access to the framework through which you can configure **Twilio** and **Watson services**.
+
+![backend-app](doc/source/images/backendApp.png)
+
+- In this code pattern, the scope is restrected to **Watson Machine Learning service**, hence you will learn _how to deploy a simple house price prediction model_ and access it from your WhatsApp messenger.
+
+- Before deploying the model, you will have to create a Twilio service, steps for which are given below.
+
+### 3. Create Twilio service
+
+Twlio is a SaaS offering that provides APIs to make and receive calls or text messages. As there are no APIs from WhatsApp directly availabe to send and receive WhatsApp messages programmatically, you will learn how to use Twilio's messaging service APIs that provides gateway to communicate with WhatsApp programmatically. Lets start by creating a free Twilio service.
 
 - Create a free Twilio service here: <https://www.twilio.com/try-twilio>.
 
@@ -235,11 +188,11 @@ start command:   python app.py
 
 ![](doc/source/images/twilioSettings.png) 
 
-- In **WhatsApp Sandbox Settings** page, under **Sandbox Configuration**, there will be a field called **WHEN A MESSAGE COMES IN**, replace the existing URL in that field with the `URL` obtained by deploying the backend application from [Step 3](#3-deploy-the-server-application-on-ibm-cloud-foundry), finally click on **Save** to save the configuration.
+- In **WhatsApp Sandbox Settings** page, under **Sandbox Configuration**, there will be a field called **WHEN A MESSAGE COMES IN**, replace the existing URL in that field with the `URL` obtained by deploying the framework from [Step 3](#3-deploy-the-server-application-on-ibm-cloud-foundry), finally click on **Save** to save the configuration.
 
 ![](doc/source/images/whatsappSandbox.png)
 
->NOTE: Sometimes the changes are not saved in Twilio WhatsApp Sandbox Settings even after clicking on save, reload the page to enusre the `URL` that you have entered in **WHEN A MESSAGE COMES IN** field is reflecting over there. If you still see the old URL over there then enter the `URL` from [Step 3](#3-deploy-the-server-application-on-ibm-cloud-foundry) again and save it.
+>NOTE: Sometimes the changes are not saved in Twilio WhatsApp Sandbox Settings even after clicking on save, reload the page to enusre the `URL` that you have entered in **WHEN A MESSAGE COMES IN** field is reflecting over there. If you still see the old URL over there then enter the `URL` from [Step 2](#2-deploy-the-server-application-on-ibm-cloud-foundry) again and save it.
 
 - Now the Backend server is configured in Twilio, any message that you send from WhatsApp from this point will go to the backend server via Twilio WhatsApp Sandbox. However to reply back to you from WhatsApp the backend server needs to establish connection with Twilio.
 
@@ -251,45 +204,105 @@ start command:   python app.py
 
 - At this point, you should have the `Sandbox Name`, `account_sid` and `auth_token` from Twilio service.
 
+- Now lets create the required watson services.
+
+### 4. Create Watson services
+
+Create the following services:
+
+#### 4.1. Watson Machine Learning
+
+- Login to IBM Cloud, and create a [**Watson Machine Learning**](https://cloud.ibm.com/catalog/services/machine-learning) service, select **region** as `London` and click on **create** as shown.
+
+![wml](doc/source/images/watsonML.png)
+
+- Once the service is created, click on the **Manage** tab and select **Access (IAM)**, the cloud Identity and Access Management page will be displayed.
+
+![manage-iam](doc/source/images/accessiam.png)
+
+- Click on **API keys** on the left panel as shown.
+
+![iam](doc/source/images/iam.png)
+
+- In **API keys**, click on **Create an IBM Cloud API key** and give a Name and Description Accordingly as shown.
+
+![create-api-key](doc/source/images/createApiKey.png)
+
+- Once the API key is generated Successfully, copy the key in any text editor as it will be used in [Step 5](#5-configure-credentials). 
+
+>NOTE: The API key will not be visible once the dialog box is dismissed, you can **Download** the API key to keep it handy just in case you loose the copied key.
+
+![api-key-created](doc/source/images/apiKeyCreated.png)
+
+#### 4.2. Watson Studio
+
+- Back to IBM Cloud, create a [**Watson Studio**](https://cloud.ibm.com/catalog/services/watson-studio) service, select **region** as `London` and finally click on **create** as shown.
+
+![watson-studio](doc/source/images/watsonStudioService.png) 
+
+- Once the service is created, click on **Get Started** to provision an IBM Cloud Pak for Data instance.
+
+![watson-studio-get-started](doc/source/images/watsonStudioGetStarted.png) 
+
+- In Watson Studio / IBM Cloud Pak for Data, click on the hamburger menu on the top left corner and select **Deployment spaces > View all spaces**.
+
+![](doc/source/images/select-deployment-spaces.gif)
+
+- In deployment spaces, click on **New deployment space +**.
+
+- Select **Create an empty space** when prompted.
+
+- Make sure you select the appropriate **Cloud object storage service** as well as **Machine learning service**.
+
+![](doc/source/images/deployment-space.png)
+
+>NOTE: In v4 Machine learning assets are stored in Cloud Object Storage rather than in the Watson Machine Learning repository.
+
+- Once the deployment space is created, click on **View Space** to view the details.
+
+![deployment-space](doc/source/images/deploymentSpaceReady.png)
+
+- Click on **Settings** and copy the `space ID` as it is required in [Step 5](#5-configure-credentials).
+
+![](doc/source/images/copy-space-id.gif)
+
+> Learn more about deployment space [here](https://eu-gb.dataplatform.cloud.ibm.com/docs/content/wsj/wmls/wmls-deploy-overview.html).
+
+- At this point, you should have the `API key` and the `Space ID` copied in any notepad as these will be used in the next  step.
+
 ### 5. Configure credentials
 
-- Visit the `URL` which was obtained by deploying the backend application in [Step 3](#3-deploy-the-server-application-on-ibm-cloud-foundry).
+- In [Step 3](#3-create-twilio-service), you will have created the twilio service and obtained the credentials and in [Step 4](#4-create-watson-services), you will have also created the Watson machine learning service and obtained the credentials, now you can add the credentials to the framework by following the simple steps stated below.
 
->Example: http://whatsapp-server.xx-xx.mybluemix.net
-
-- You will now have access to the backend through which you can configure **Twilio** and **Watson services**.
-
-![backend-app](doc/source/images/backendApp.png)
-
-- You will have to configure the backend with Twilio credentials generated in [Step 4](#4-create-twilio-service) and Watson Machine Learning credentials generated in [Step 2](#2-create-watson-services).
-
-- Under **Add Twilio service to the Application**, click on the **Add Twilio Credentials** button and insert the twilio `account_sid` and `auth_token` which were generated from [Step 4](#4-create-twilio-service) and finally click on **Submit**. You will now see the status as `Configured`.
+- Back to the framework, under **Add Twilio service to the Application**, click on the **Add Twilio Credentials** button and insert the twilio `account_sid` and `auth_token` which were generated from [Step 3](#3-create-twilio-service) and finally click on **Submit**. You will now see the status as `Configured`.
 
 ![twilio-credentials-in-backend-app](doc/source/images/addingTwilioCredentials.gif)
 
-- Similarly, under **Add Watson services to the Application**, select the **Watson Machine Learning** radio button and click on **Add Watson Credentials** button, here add the `apikey`, `region` and `space_id` which were generated from [Step 2](#2-create-watson-services) and finally click on **Submit**. You will now see `Watson Machine Learning` under **Configured Services**.
+- Similarly, under **Add Watson services to the Application**, select the **Watson Machine Learning** radio button and click on **Add Watson Credentials** button, here add the `apikey`, `region` and `space_id` which were generated from [Step 4](#4-create-watson-services) and finally click on **Submit**. You will now see `Watson Machine Learning` under **Configured Services**.
 
 ![wml-credentials-in-backend-app](doc/source/images/addingWmlCredentials.gif)
 
-- At this point, you have successfully configured the backend for WhatsApp to communicate with Watson services through Twilio messaging service as Inter-mediator.
+- At this point, you have successfully configured the framework that connects Watson services to WhatsApp.
+
+- In this code pattern as we have scoped to demonstrate only the Watson Machine Learning service, we have also provided a sample house price prediction model that can be deployed. 
 
 ### 6. Deploy the House Price Prediction model
 
-- Now that the Twilio service and Backend server both are configured, you can deploy the sample model from the backend application.
+- Now that the framework is configured, you can deploy the sample model from the framework.
 
 - The sample model is a House Price Prediction model built to predict house prices in the city Bengaluru, Karnataka, India. 
 
 >NOTE: The main aim of this code pattern is to demonstrate how IBM Watson Services can be plugged into WhatsApp and not about how to build Machine Learning models for which we already have other code pattens, hence we are limiting the scope to a basic model. With some minor code changes you can use any Machine Learning models.
 
-- In the Application, click on the **Deploy Model** tab, and you will see the details of the model.
+- In the framework, click on the **Deploy Model** tab, and you will see the details of the model.
 
->NOTE: The dataset for the sample house price prediction model is taken from Kaggle, credits to [Bengaluru House price data](https://www.kaggle.com/amitabhajoy/bengaluru-house-price-data) from Kaggle.
+>NOTE: The dataset for the sample house price prediction model is taken from Kaggle, credits to [Bengaluru House price data](https://www.kaggle.com/amitabhajoy/bengaluru-house-price-data) from Kaggle and it is under the License of **CC0: Public Domain**.
 
 ![](doc/source/images/deployWml.png)
 
 - Click on **Deploy the Model on WML** button and wait for the **Status** to change.
 
->Note: It will take couple of minutes for the model to get deployed.
+>Note: It will take couple of minutes for the model to get deployed, please be patient.
 
 - Once the model is deployed you will see a **Status** as `Deployed, Model ID: xxx-xxx-xxx`.
 
@@ -297,11 +310,11 @@ start command:   python app.py
 
 # Sample output
 
-- Once the model is deployed and ready to use, the **View Application in Action** panel will be visible in the Application.
+- In the framework, you will see **View Application in Action** tab.
 
 ![](doc/source/images/whatsappQR.png)
 
-- Scan the QR code in your Phone to open the WhatsApp chat with Twilio.
+- Scan the QR code in your Phone to open the WhatsApp chat with Twilio's messaging API.
 
 - A WhatsApp chat will open up in your phone with a typed code `join <sandbox name>`.
 
@@ -338,11 +351,7 @@ B | Share your current location Tap Attach > Location > Send your current locati
 *GPS LOCATION* | For Area: XXX, Bengaluru Please enter the details with the below format: Predict:`<Area-sq.ft>`,`<How-many-bhk>` Example: Predict:1300,2 | ![7](doc/source/images/whatsappss/9.PNG)
 Predict: 1200, 2 | Area: XXX, Bengaluru 2 Bhk with 1200 Sq.Ft will cost you approx: <b>67 Lakhs</b> | ![8](doc/source/images/whatsappss/10.PNG)
 
-At the end of the code pattern you will have learnt how to Augment IBM Watson services to WhatsApp via Twilio service.
-
-## Related
-
-- [Augment Watson Visual Recognition service with WhatsApp](https://github.com/IBM/augment-watson-services-to-whatsapp-2)
+At the end of the code pattern you will have learnt how to build a framework that connects WhatsApp to any Watson service on IBM Cloud, you can add other Watson services to the framework just by creating the desired service, adding the credentials in the framework and writing a code block leveraging the service in a serverless cloud function action, to learn more about adding more services to the framework, you can refer to [Augment Watson Visual Recognition service with WhatsApp](https://github.com/IBM/augment-watson-services-to-whatsapp-2).
 
 ## License
 

@@ -4,7 +4,7 @@ Build a framework that connects WhatsApp to any Watson service on IBM Cloud.
 
 # Long Title
 
-Build a WhatsApp bot to get predictions from a Machine Learning model deployed on IBM Watson Machine Learning
+Build a framework that connects WhatsApp to any Watson service on IBM Cloud providing the AI capabilities to the customers.
 
 
 # Author
@@ -23,7 +23,7 @@ https://github.com/IBM/augment-watson-services-to-whatsapp
 
 # Summary
 
-In this Code Pattern, we will build a WhatsApp bot augmented with Watson machine learning service that will be capable of answering queries related to real estate (area wise, city wise, etc..) and also capable of predicting the prices of a property based on customers requirement.
+In this Code Pattern, you will learn how to build a framework which can act as an intermediator in connecting Watson services to WhatsApp messenger, to enable mobile users to leverage watson services through a messenger app.
 
 # Technologies
 
@@ -38,14 +38,23 @@ In this Code Pattern, we will build a WhatsApp bot augmented with Watson machine
 
 # Description
 
-As of today, there are 2.4 Billion users on WhatsApp and the number keeps climbing! For medium and large businesses, WhatsApp has Introduced the WhatsApp Business API that powers communication with customers all over the world, so they can connect with the businesses on WhatsApp in a simple, secure, and reliable way. In order to make the conversations smarter, we can Infuse AI with the help of IBM Watson services as the backend.
+As of today, there are 2.4 Billion users on WhatsApp and the number keeps climbing! For medium and large businesses, WhatsApp has Introduced the WhatsApp Business account that powers communication with customers all over the world, so they can connect with the businesses on WhatsApp in a simple, secure, and reliable way. In order to make the conversations smarter, Watson AI can be infused as the backend to deliver advanced AI capabilities to customers.
+
+In this code pattern, you will learn to build a framework and how to connect Watson Machine Learning service, deploy a simple house price prediction model and access it from your WhatsApp messenger.
+
+When you have completed this code pattern, you will understand how to:
+
+* Integrate IBM Watson Services to WhatsApp.
+* Deploy Application to IBM Cloud Foundry.
+* Deploy Machine Learning models to Cloud Object Storage.
+* Manage Machine Learning models in IBM Watson Studio.
 
 # Flow
 
 <!--add an image in this path-->
 ![architecture](doc/source/images/architecture.png)
 
-1. User sends a message to WhatsApp.
+1. User sends a message through WhatsApp.
 
 2. The message is redirected to Twilio Programmable Messaging service.
 
