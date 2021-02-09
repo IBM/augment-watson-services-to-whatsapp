@@ -1,4 +1,4 @@
-# Build a framework that connects WhatsApp to any Watson service on IBM Cloud.
+# Build a framework that connects WhatsApp to Watson services
 
 In this Code Pattern, you will learn how to build a framework which can act as an intermediator in connecting Watson services to WhatsApp messenger, to enable mobile users to leverage watson services through a messenger app.
 
