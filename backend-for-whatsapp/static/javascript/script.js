@@ -83,7 +83,7 @@ const getWatsonCredentials = async () => {
             else if (element == 'wvrCredentials.json')
                 wStatus.innerHTML += "<li>" + "<code>Watson Visual Recognition</code>" + "</li><br>";
             else
-                wStatus.innerHTML += "<li>" + "<code>" + element + "</code>" + "</li><br>";
+                console.log(element);
         });
 
         changeMode();
