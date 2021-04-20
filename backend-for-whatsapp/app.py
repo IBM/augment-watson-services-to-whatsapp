@@ -244,11 +244,11 @@ def deployWMLModel():
     client.set.default_space(space_id)
     
     sofware_spec_uid = client.software_specifications.get_id_by_name(
-        "scikit-learn_0.20-py3.6")
+        "default_py3.7")
 
     metadata = {
         client.repository.ModelMetaNames.NAME: 'Bangalore House Price Prediction',
-        client.repository.ModelMetaNames.TYPE: "default_py-3.7",
+        client.repository.ModelMetaNames.TYPE: "default_py3.7",
         client.repository.ModelMetaNames.SOFTWARE_SPEC_UID: sofware_spec_uid
     }
 
