@@ -248,7 +248,7 @@ def deployWMLModel():
 
     metadata = {
         client.repository.ModelMetaNames.NAME: 'Bangalore House Price Prediction',
-        client.repository.ModelMetaNames.TYPE: "scikit-learn_0.20",
+        client.repository.ModelMetaNames.TYPE: "default_py-3.7",
         client.repository.ModelMetaNames.SOFTWARE_SPEC_UID: sofware_spec_uid
     }
 
