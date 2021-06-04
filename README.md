@@ -150,49 +150,39 @@ Twlio is a SaaS offering that provides APIs to make and receive calls or text me
 
 - Create a free Twilio service here: <https://www.twilio.com/try-twilio>.
 
-- Enter the your details to signup as shown.
+>NOTE: - Once you create a Twilio service, you will have to verify your email id as well as your phone number.
 
-![twilio-signup](doc/source/images/createTwilio.png)
-
-- Once you create a twilio service, you will have to verify your email id as well as your phone number.
-
-- To verify your email id, visit your registered email id and you will see a mail from twilio with a verification link, go ahead and verify.
-
+>- You will receive verification link in the email provided during Twilio sign up. Go ahead and verify your email id.
 ![](doc/source/images/verifyTwilio.png)
 
 - Once email id is verified you will be prompted to enter your phone number, submit that and you will get an OTP on your registered number, enter that back to verify.
 
-![](doc/source/images/verifyMobileTwilio.png)
+    ![](doc/source/images/verifyMobileTwilio.png)
 
-- On successful verification you should see a welcome greeting message, additionally you will see a question **Do you write code?**, select **Yes** to proceed.
+- On successful verification you should see a welcome greeting message, additionally you will see some questions, select as described below.
 
-![](doc/source/images/twilioWelcome.png)
+    ![](doc/source/images/twilio-details.png)
 
-- The second question asked to you would be **What is your preferred language?**, select **Python** to proceed.
+    Questions|Answers
+    --|--
+    Which Twilio product are you here to use?| WhatsApp
+    What do you plan to build with Twilio?| IVR & Bots
+    How do you want to build with Twilio?| With code
+    What is your preferred coding language?| Python
+    Would you like Twilio to host your code?| No, I want to use my own hosting service
 
-![](doc/source/images/twilioWelcome2.png)
+- Visit the Whatsapp section in Twilio <https://www.twilio.com/console/sms/whatsapp/sandbox>
 
-- Third question asked to you would be **What is your goal today?**, select **Use Twilio in a project** to proceed.
-
-![](doc/source/images/twilioWelcome3.png)
-
-- The final question asked to you would be **What do you want to do first?**, select **Send WhatsApp messages** to proceed.
-
-![](doc/source/images/twilioWelcome4.png)
-
-- You will then see a popup box requesting you to **Activate Your Sandbox**, click on **I agree** checkbox and click **Confirm**.
-
+- You will see a popup box reqsuesting you to **Activate Your Sandbox**, click on **I agree** checkbox and click **Confirm**.
 ![](doc/source/images/allowSandbox.png)
 
 - The sandbox for WhatsApp will appear, make a note of the `Sandbox Name` which will be prefixed with **join**, click on **Settings** on the left panel and select **WhatsApp Sandbox Settings**.
-
 ![](doc/source/images/twilioSettings.png) 
 
-- In **WhatsApp Sandbox Settings** page, under **Sandbox Configuration**, there will be a field called **WHEN A MESSAGE COMES IN**, replace the existing URL in that field with the `URL` obtained by deploying the framework from [Step 3](#3-deploy-the-server-application-on-ibm-cloud-foundry), finally click on **Save** to save the configuration.
-
+- In **WhatsApp Sandbox Settings** page, under **Sandbox Configuration**, there will be a field called **WHEN A MESSAGE COMES IN**, replace the existing URL in that field with the `URL` obtained by deploying the Python Application from [Step 3](#3-build-and-deploy-the-python-application), finally click on **Save** to save the configuration.
 ![](doc/source/images/whatsappSandbox.png)
 
->NOTE: Sometimes the changes are not saved in Twilio WhatsApp Sandbox Settings even after clicking on save, reload the page to enusre the `URL` that you have entered in **WHEN A MESSAGE COMES IN** field is reflecting over there. If you still see the old URL over there then enter the `URL` from [Step 2](#2-deploy-the-server-application-on-ibm-cloud-foundry) again and save it.
+>NOTE: Sometimes the changes are not saved in Twilio WhatsApp Sandbox Settings even after clicking on save, reload the page to enusre the `URL` that you have entered in **WHEN A MESSAGE COMES IN** field is reflecting over there. If you still see the old URL over there then enter the `URL` from [Step 3](#3-build-and-deploy-the-python-application) again and save it.
 
 - Now the Backend server is configured in Twilio, any message that you send from WhatsApp from this point will go to the backend server via Twilio WhatsApp Sandbox. However to reply back to you from WhatsApp the backend server needs to establish connection with Twilio.
 
